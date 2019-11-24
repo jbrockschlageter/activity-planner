@@ -11,8 +11,9 @@ public class ActivityPlanner {
     public static String init(String[] args){
 
         dbUtil = new DatabaseUtility();
-        return "Program Initialized Successfully.";
+        return (dbUtil.loadDatabase() + " Program Initialized Successfully.");
 
     }
+
 
 }
