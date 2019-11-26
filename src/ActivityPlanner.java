@@ -3,15 +3,15 @@ public class ActivityPlanner {
     protected static DatabaseUtility dbUtil;
 
     public static void main(String[] args){
-
-        System.out.println(init(args));
-
+        init(args);
     }
 
-    public static String init(String[] args){
+    public static void init(String[] args){
 
         dbUtil = new DatabaseUtility();
-        return (dbUtil.loadDatabase() + " Program Initialized Successfully.");
+        dbUtil.loadDatabase();
+
+
 
     }
 
