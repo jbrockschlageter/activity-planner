@@ -25,14 +25,8 @@ public class Activity {
         }
     }
 
-    public HashMap<String,String> sanitize(HashMap<String,String> activityMap){
-        for (Map.Entry<String, String> entry : activityMap.entrySet()) {
-            if(!acceptedActivities.contains(entry.getKey())){
-                activityMap.remove(entry.getKey());
-            }
-        }
+    public HashMap<String,String> sanitize(HashMap<String,String> activityMap) {
+        //TODO: create
         return activityMap;
     }
-
-
 }

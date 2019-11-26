@@ -12,6 +12,7 @@ public class DatabaseUtility {
 
     public DatabaseUtility(){
         databaseFileName = "C:\\Users\\jessi\\Desktop\\PERSONAL PROJECT\\Activity Planner\\src\\ACTIVITY_CSV_DATABASE.txt";
+        allActivities = new ArrayList<>();
     }
 
     public ArrayList<Activity> getAllActivities(){
@@ -26,13 +27,14 @@ public class DatabaseUtility {
     public HashMap<String,String> parseStatement(String statement) {
 
         String[] statementAttrs = statement.split(",");
+
         HashMap<String, String> resultAttr = new HashMap<>();
 
         for (String attr : statementAttrs) {
             attr = attr.trim();
             String[] attrSplit = attr.split(":");
 
-            resultAttr.put(attrSplit[0], attrSplit[1]);
+            resultAttr.put(attrSplit[0].toLowerCase(), attrSplit[1]);
         }
         return resultAttr;
     }
@@ -48,11 +50,12 @@ public class DatabaseUtility {
             String line = bufferedReader.readLine();
             while (line != null) {
                 HashMap<String,String> activityString = parseStatement(line);
+                System.out.println(activityString);
                 Activity activity = new Activity();
                 activity.create(activityString);
                 allActivities.add(activity);
-
                 line = bufferedReader.readLine();
+
             }
         }
         catch(Exception e){
